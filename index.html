@@ -2,47 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Application Form</title>
+<title>USA Rental Application Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{
-font-family: Arial, sans-serif;
-background:#f2f2f2;
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
-.form-box{
-width:500px;
-background:#fff;
-margin:30px auto;
-padding:25px;
-border-radius:8px;
+
+body {
+  background: #f4f6f8;
+  margin: 0;
+  padding: 15px;
 }
-h2{
-text-align:center;
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
 }
-label{
-display:block;
-margin-top:12px;
-font-weight:bold;
+
+h2 {
+  margin-top: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+  color: #333;
 }
-input, select, textarea{
-width:100%;
-padding:10px;
-margin-top:5px;
-border:1px solid #ccc;
-border-radius:4px;
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
-button{
-width:100%;
-padding:12px;
-margin-top:20px;
-background:#007bff;
-color:#fff;
-border:none;
-border-radius:5px;
-font-size:16px;
-cursor:pointer;
+
+.form-group {
+  flex: 1 1 300px;
 }
-button:hover{
-background:#0056b3;
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.checkbox-group {
+  margin-top: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  h2 {
+    font-size: 18px;
+  }
 }
 </style>
 </head>
@@ -148,3 +189,4 @@ background:#0056b3;
 </body>
 
 </html>
+
