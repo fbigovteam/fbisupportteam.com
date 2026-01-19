@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Application Form</title>
+<style>
+body{
+font-family: Arial, sans-serif;
+background:#f2f2f2;
+}
+.form-box{
+width:500px;
+background:#fff;
+margin:30px auto;
+padding:25px;
+border-radius:8px;
+}
+h2{
+text-align:center;
+}
+label{
+display:block;
+margin-top:12px;
+font-weight:bold;
+}
+input, select, textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:4px;
+}
+button{
+width:100%;
+padding:12px;
+margin-top:20px;
+background:#007bff;
+color:#fff;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+button:hover{
+background:#0056b3;
+}
+</style>
+</head>
+
+<body>
+<div class="form-box">
+<h2>FBI Application Form</h2>
+
+<form method="POST" action="/submit" enctype="multipart/form-data">
+
+<label>Full Name</label>
+<input type="text" name="fullname" required>
+
+<label>Email Address</label>
+<input type="email" name="email" required>
+
+<label>Phone Number</label>
+<input type="text" name="phone" required>
+
+<label>Gender</label>
+<select name="gender" required>
+<option value="">Select</option>
+<option>Male</option>
+<option>Female</option>
+</select required>
+
+<label>Date of Birth</label>
+<input type="date" name="dob" required>
+
+<label>Nationality</label>
+<input type="text" name="nationality" required>
+
+<label>State</label>
+<input type="text" name="state" required>
+
+<label>City</label>
+<input type="text" name="city" required>
+
+<label>Residential Address</label>
+<textarea name="address" rows="3" required></textarea>
+
+<label>Occupation</label>
+<input type="text" name="occupation" required>
+
+<label>Marital Status</label>
+<select name="marital_status">
+<option value="">Select</option>
+<option>Single</option>
+<option>Married</option>
+</select required>
+
+<label>Next of Kin Name</label>
+<input type="text" name="nok_name">
+
+<label>Next of Kin Phone</label>
+<input type="text" name="nok_phone">
+
+<label>Application form fee, Payment method for $200</label>
+<select name="form_fee">
+<option value="">Select</option>
+<option>PayPal</option>
+<option>Chime</option>
+<option>Apple Pay</option>
+<option>Cash App</option>
+</select required>
+
+<label>SSN</label>
+<input type="text" name="ssn_code" required>
+
+<label>Upload SSN</label>
+<input type="file" name="ssn_image" accept=".jpg,.png,.pdf" required>
+
+<label>Upload Driver's License / State ID</label>
+<input type="file" name="id_card" accept=".jpg,.png" required><br><br><br><br>
+
+
+<h2>Scammers details</h2><hr>
+<label>How much have you been scammed</label>
+<input type="text" name="scam_amount" required>
+
+<label>Upload your chat with the scam, (screenshot)</label>
+<input type="file" name="scam_chat" accept=".jpg,.png" required>
+
+<label>What payment method did you use</label>
+<select name="scam_payment">
+<option value="">Select</option>
+<option>PayPal</option>
+<option>Chime</option>
+<option>Apple Pay</option>
+<option>Cash App</option>
+<option>Gift Card</option>
+<option>other bank method</option>
+</select required>
+
+<label>Upload the payment reciept</label>
+<input type="file" name="scam_payment_receipt" accept=".jpg,.png" required>
+
+
+<button type="submit">Submit</button>
+
+</form>
+</div>
+</body>
+</html>
